@@ -17,12 +17,14 @@ public class ProductService {
     //   не связанные с обработкой HTTP запросов.
 
     private final ProductRepository productRepository;
+    private final CategoryService categoryService;
 
     public Product create(ProductDTO productDTO){
         Product product = Product
                 .builder()
                 .name(productDTO.getName())
                 .amount(productDTO.getAmount())
+                .category(categoryService.findCategoryById(productDTO.getCategoryId()))
                 .build();
 
         return productRepository.save(product);
@@ -32,10 +34,18 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    public List<Product> readByCategoryId(Long id){
+        return productRepository.findByCategoryId(id);
+    }
+
     public Product update(Product product){
         return productRepository.save(product);
     }
     public void deleteById(Long id){
         productRepository.deleteById(id);
     }
+
+
+
+
 }
