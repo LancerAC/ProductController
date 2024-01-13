@@ -11,6 +11,11 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ProductService {
+    //Service классы:
+    //   - Содержат бизнес-логику приложения. Здесь реализуются операции с данными,
+    //   проведение бизнес-процессов и другие операции,
+    //   не связанные с обработкой HTTP запросов.
+    @SuppressWarnings("SpellCheckingInspection")
     private final ProductRepository productRepository;
 
     public Product create(ProductDTO productDTO){
