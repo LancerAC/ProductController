@@ -1,9 +1,6 @@
 package com.example.productcontroller.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -23,6 +20,10 @@ public class Product {
     public void setId(Long id) {
         this.id = id;
     }
+
+    @ManyToOne
+    @JoinColumn(name =  "category_id")
+    private Category category;
 
 
 }
