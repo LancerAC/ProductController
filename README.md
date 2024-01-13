@@ -1,1 +1,1 @@
-A small product management application based on the mvc pattern.
+A small product management rest api application based on the mvc pattern.
