@@ -15,7 +15,7 @@ public class ProductService {
     //   - Содержат бизнес-логику приложения. Здесь реализуются операции с данными,
     //   проведение бизнес-процессов и другие операции,
     //   не связанные с обработкой HTTP запросов.
-    @SuppressWarnings("SpellCheckingInspection")
+
     private final ProductRepository productRepository;
 
     public Product create(ProductDTO productDTO){
