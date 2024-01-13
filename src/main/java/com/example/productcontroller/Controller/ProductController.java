@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@RequestMapping("/product")
+@RequestMapping("/products")
 @RequiredArgsConstructor
 @RestController
 public class ProductController {
@@ -35,5 +35,9 @@ public class ProductController {
     public HttpStatus deleteById(@PathVariable Long id){
         productService.deleteById(id);
         return HttpStatus.OK;
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<List<Product>> findByCategoryId(@PathVariable Long id){
+        return new ResponseEntity<>(productService.readByCategoryId(id), HttpStatus.OK);
     }
 }
