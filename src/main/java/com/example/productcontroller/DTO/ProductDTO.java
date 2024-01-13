@@ -11,4 +11,5 @@ public class ProductDTO {
     // чтобы избежать прямого доступа к внутренним объектам или сущностям.
     private String name;
     private Short amount;
+    private Long categoryId;
 }
