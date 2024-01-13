@@ -10,8 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@RequestMapping("/product")
 @RequiredArgsConstructor
+@RestController
 public class ProductController {
     //Controller классы:
     //Обрабатывают HTTP запросы и управляют
