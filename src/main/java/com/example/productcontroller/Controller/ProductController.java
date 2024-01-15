@@ -3,16 +3,17 @@ package com.example.productcontroller.Controller;
 import com.example.productcontroller.DTO.ProductDTO;
 import com.example.productcontroller.Entity.Product;
 import com.example.productcontroller.Service.ProductService;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RequestMapping("/products")
 @RequiredArgsConstructor
-@RestController
+@Controller
 public class ProductController {
     //Controller классы:
     //Обрабатывают HTTP запросы и управляют
@@ -23,9 +24,11 @@ public class ProductController {
         return new ResponseEntity<>(productService.create(productDTO), HttpStatus.CREATED);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Product>> readAll(){
-        return new ResponseEntity<>(productService.readAll(), HttpStatus.OK);
+    @GetMapping("/getAll")
+    public String readAll(Model model){
+        //return new ResponseEntity<>(productService.readAll(), HttpStatus.OK);
+        model.addAttribute("allProducts", productService.readAll());
+        return "products";
     }
     @PutMapping
     public ResponseEntity<Product> update(@RequestBody Product product){
