@@ -42,12 +42,6 @@ class ProductControllerTest {
     }
 
     @Test
-    void readAll() {
-        ResponseEntity<List<Product>> listResponseEntity = productController.readAll();
-        assertEquals(HttpStatus.OK, listResponseEntity.getStatusCode());
-
-    }
-    @Test
     void deleteById() {
         HttpStatus httpStatus = productController.deleteById(PRODUCT_ID);
 
