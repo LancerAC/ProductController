@@ -1,8 +1,12 @@
 package com.example.productcontroller.DTO;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
+@AllArgsConstructor
 public class ProductDTO {
     //DTO (Data Transfer Object) в веб-разработке на Spring Boot представляет собой объект,
     // который используется для передачи данных между слоями приложения или между клиентом и сервером.
